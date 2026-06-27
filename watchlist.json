@@ -1,0 +1,346 @@
+{
+  "symbols": {
+    "WTI": {
+      "name": "WTI Crude Oil",
+      "ticker": "CL=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "BRENT": {
+      "name": "Brent Oil",
+      "ticker": "BZ=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "GOLD": {
+      "name": "Gold",
+      "ticker": "GC=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "SILVER": {
+      "name": "Silver",
+      "ticker": "SI=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "NATGAS": {
+      "name": "Natural Gas",
+      "ticker": "NG=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "COPPER": {
+      "name": "Copper",
+      "ticker": "HG=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "NASDAQ": {
+      "name": "Nasdaq 100",
+      "ticker": "NQ=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "SP500": {
+      "name": "S&P 500",
+      "ticker": "ES=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "DOW": {
+      "name": "Dow Jones",
+      "ticker": "YM=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "RUSSELL": {
+      "name": "Russell 2000",
+      "ticker": "RTY=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "BTC": {
+      "name": "Bitcoin",
+      "ticker": "BTC-USD",
+      "group": "Crypto",
+      "enabled": true
+    },
+    "ETH": {
+      "name": "Ethereum",
+      "ticker": "ETH-USD",
+      "group": "Crypto",
+      "enabled": true
+    },
+    "SOL": {
+      "name": "Solana",
+      "ticker": "SOL-USD",
+      "group": "Crypto",
+      "enabled": true
+    },
+    "AAPL": {
+      "name": "Apple",
+      "ticker": "AAPL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "MSFT": {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "NVDA": {
+      "name": "Nvidia",
+      "ticker": "NVDA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "TSLA": {
+      "name": "Tesla",
+      "ticker": "TSLA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "AMZN": {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "GOOGL": {
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "META": {
+      "name": "Meta",
+      "ticker": "META",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "AMD": {
+      "name": "AMD",
+      "ticker": "AMD",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "NFLX": {
+      "name": "Netflix",
+      "ticker": "NFLX",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "JPM": {
+      "name": "JPMorgan",
+      "ticker": "JPM",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "XOM": {
+      "name": "Exxon Mobil",
+      "ticker": "XOM",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "V": {
+      "name": "Visa",
+      "ticker": "V",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "MA": {
+      "name": "Mastercard",
+      "ticker": "MA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "UNH": {
+      "name": "UnitedHealth",
+      "ticker": "UNH",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "LLY": {
+      "name": "Eli Lilly",
+      "ticker": "LLY",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "AVGO": {
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "COST": {
+      "name": "Costco",
+      "ticker": "COST",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "WMT": {
+      "name": "Walmart",
+      "ticker": "WMT",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "HD": {
+      "name": "Home Depot",
+      "ticker": "HD",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "BAC": {
+      "name": "Bank of America",
+      "ticker": "BAC",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "KO": {
+      "name": "Coca-Cola",
+      "ticker": "KO",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "PEP": {
+      "name": "PepsiCo",
+      "ticker": "PEP",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "DIS": {
+      "name": "Disney",
+      "ticker": "DIS",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "CRM": {
+      "name": "Salesforce",
+      "ticker": "CRM",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "ORCL": {
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "INTC": {
+      "name": "Intel",
+      "ticker": "INTC",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "MCD": {
+      "name": "McDonald's",
+      "ticker": "MCD",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "BA": {
+      "name": "Boeing",
+      "ticker": "BA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "NKE": {
+      "name": "Nike",
+      "ticker": "NKE",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "PYPL": {
+      "name": "PayPal",
+      "ticker": "PYPL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "SHOP": {
+      "name": "Shopify",
+      "ticker": "SHOP",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "UBER": {
+      "name": "Uber",
+      "ticker": "UBER",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "PLTR": {
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "SPY": {
+      "name": "SPY ETF",
+      "ticker": "SPY",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "QQQ": {
+      "name": "QQQ ETF",
+      "ticker": "QQQ",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "IWM": {
+      "name": "Russell ETF",
+      "ticker": "IWM",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "DIA": {
+      "name": "Dow ETF",
+      "ticker": "DIA",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "GLD": {
+      "name": "Gold ETF",
+      "ticker": "GLD",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "SLV": {
+      "name": "Silver ETF",
+      "ticker": "SLV",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "USO": {
+      "name": "Oil ETF",
+      "ticker": "USO",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "TLT": {
+      "name": "20Y Treasury ETF",
+      "ticker": "TLT",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "EURUSD": {
+      "name": "EUR/USD",
+      "ticker": "EURUSD=X",
+      "group": "Forex",
+      "enabled": true
+    },
+    "GBPUSD": {
+      "name": "GBP/USD",
+      "ticker": "GBPUSD=X",
+      "group": "Forex",
+      "enabled": true
+    },
+    "USDJPY": {
+      "name": "USD/JPY",
+      "ticker": "JPY=X",
+      "group": "Forex",
+      "enabled": true
+    }
+  }
+}
