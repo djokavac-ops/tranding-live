@@ -1,0 +1,154 @@
+{
+  "symbols": {
+    "NASDAQ": {
+      "name": "Nasdaq 100",
+      "ticker": "NQ=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "SP500": {
+      "name": "S&P 500",
+      "ticker": "ES=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "DOW": {
+      "name": "Dow Jones",
+      "ticker": "YM=F",
+      "group": "Indices",
+      "enabled": true
+    },
+    "GOLD": {
+      "name": "Gold",
+      "ticker": "GC=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "SILVER": {
+      "name": "Silver",
+      "ticker": "SI=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "WTI": {
+      "name": "WTI Crude Oil",
+      "ticker": "CL=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "BRENT": {
+      "name": "Brent Oil",
+      "ticker": "BZ=F",
+      "group": "Commodities",
+      "enabled": true
+    },
+    "BTC": {
+      "name": "Bitcoin",
+      "ticker": "BTC-USD",
+      "group": "Crypto",
+      "enabled": true
+    },
+    "ETH": {
+      "name": "Ethereum",
+      "ticker": "ETH-USD",
+      "group": "Crypto",
+      "enabled": true
+    },
+    "AAPL": {
+      "name": "Apple",
+      "ticker": "AAPL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "MSFT": {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "NVDA": {
+      "name": "Nvidia",
+      "ticker": "NVDA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "TSLA": {
+      "name": "Tesla",
+      "ticker": "TSLA",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "AMZN": {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "GOOGL": {
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "META": {
+      "name": "Meta",
+      "ticker": "META",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "AMD": {
+      "name": "AMD",
+      "ticker": "AMD",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "JPM": {
+      "name": "JPMorgan",
+      "ticker": "JPM",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "XOM": {
+      "name": "Exxon Mobil",
+      "ticker": "XOM",
+      "group": "Stocks",
+      "enabled": true
+    },
+    "SPY": {
+      "name": "SPY ETF",
+      "ticker": "SPY",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "QQQ": {
+      "name": "QQQ ETF",
+      "ticker": "QQQ",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "GLD": {
+      "name": "Gold ETF",
+      "ticker": "GLD",
+      "group": "ETFs",
+      "enabled": true
+    },
+    "EURUSD": {
+      "name": "EUR/USD",
+      "ticker": "EURUSD=X",
+      "group": "Forex",
+      "enabled": true
+    },
+    "GBPUSD": {
+      "name": "GBP/USD",
+      "ticker": "GBPUSD=X",
+      "group": "Forex",
+      "enabled": true
+    },
+    "USDJPY": {
+      "name": "USD/JPY",
+      "ticker": "JPY=X",
+      "group": "Forex",
+      "enabled": true
+    }
+  }
+}
