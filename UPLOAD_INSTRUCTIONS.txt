@@ -1,0 +1,19 @@
+UPLOAD READY VERSION
+
+Upload/replace these files in GitHub:
+- server.py
+- requirements.txt
+- watchlist.json
+- README.md
+- static/ folder
+
+Most important fix:
+requirements.txt includes:
+- pandas==2.2.2
+- openpyxl==3.1.5
+
+After upload:
+1. Commit changes
+2. Render will redeploy
+3. Check Logs
+4. Open app
