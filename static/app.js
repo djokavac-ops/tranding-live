@@ -13,6 +13,17 @@ const $=id=>document.getElementById(id);let market={};const fmt=(n,d=2)=>Number.
 
 
 
+
+async function loadEnterprisePanel(){
+  try{
+    const e=await api("/api/enterprise/status");
+    const health=e.health||{};
+    const cons=(e.consensus?.items||[]).slice(0,5).map(x=>`<div class="log"><b>${x.symbol} · ${x.name}</b><br>${x.signal} · AI ${fmt(x.ai_score)} · Consensus ${(x.consensus?.decision)||"—"} ${fmt((x.consensus?.consensus_score)||0)}</div>`).join("");
+    $("enterprisePanel").innerHTML=`<div class="metric"><span>Version</span><strong>${e.version}</strong></div><div class="metric"><span>Health</span><strong>${health.overall||"—"}</strong></div><div class="metric"><span>Live locked</span><strong>${e.live_locked?"YES":"NO"}</strong></div><div class="metric"><span>Paper first</span><strong>${e.paper_first?"YES":"NO"}</strong></div><div class="metric"><span>Excel</span><strong>${e.excel_export}</strong></div><div class="ai">Enterprise is Render-safe, no pandas, live locked, paper-first active.</div><h3>Top Consensus</h3>${cons}`;
+  }catch(err){$("enterprisePanel").innerHTML="Enterprise panel trenutno nije dostupan."}
+}
+async function enterpriseExcel(){ window.location.href="/api/enterprise/export-excel"; }
+
 async function loadLiveIntelligence(){
   try{
     const s=await api("/api/live-intelligence/status");
@@ -194,4 +205,24 @@ async function loadProfessionalCore(){
   }catch(e){$("brokerStatus").innerHTML="Broker status nije dostupan."}
 }
 
-async function refresh(){await settings();await loadMarket();await loadBrief();await loadAudit();await loadPaper();await loadProfessionalCore();await loadLiveIntelligence();await loadIbkrExecution();await loadHybridMode();await loadProfessional50();await loadOilCfdEngine();await loadIntelligencePlus();await loadIntelligenceCore();await loadControlCenter();await loadIbkrConnect();await loadBrokerEngineFull();await loadSafetyCore();await loadBrokerApprovalCore();await loadAdvancedRisk();await loadStrategyLab();await loadAiJournal()}$("refresh").onclick=refresh;$("run").onclick=run;$("reset").onclick=reset;$("save").onclick=save;$("filter").onchange=render;$("dailyReport").onclick=()=>showReport("daily");$("weeklyReport").onclick=()=>showReport("weekly");$("allReport").onclick=()=>showReport("all");$("runBacktest").onclick=runBacktest;$("runWatchlistBacktest").onclick=runWatchlistBacktest;$("killOn").onclick=killSwitchOn;$("killOff").onclick=killSwitchOff;$("checkIbkr").onclick=loadIbkrConnect;$("modePaper").onclick=()=>setMode("paper");$("modeApproval").onclick=()=>setMode("approval");$("emergencyStop").onclick=emergencyStop;$("resumePaper").onclick=resumePaper;$("buildMemory").onclick=buildMemory;$("biasNeutral").onclick=()=>setOilBias("neutral");$("biasOilBull").onclick=()=>setOilBias("oil_bullish");$("biasOilBear").onclick=()=>setOilBias("oil_bearish");refresh();setInterval(refresh,60000);
+async function refresh(){await settings();await loadMarket();await loadBrief();await loadAudit();await loadPaper();await loadProfessionalCore();await loadHedgeFundPanel();await loadInfraPanel();await loadEnterprisePanel();await loadLiveIntelligence();await loadIbkrExecution();await loadHybridMode();await loadProfessional50();await loadOilCfdEngine();await loadIntelligencePlus();await loadIntelligenceCore();await loadControlCenter();await loadIbkrConnect();await loadBrokerEngineFull();await loadSafetyCore();await loadBrokerApprovalCore();await loadAdvancedRisk();await loadStrategyLab();await loadAiJournal()}$("refresh").onclick=refresh;$("run").onclick=run;$("reset").onclick=reset;$("save").onclick=save;$("filter").onchange=render;$("dailyReport").onclick=()=>showReport("daily");$("weeklyReport").onclick=()=>showReport("weekly");$("allReport").onclick=()=>showReport("all");$("runBacktest").onclick=runBacktest;$("runWatchlistBacktest").onclick=runWatchlistBacktest;$("killOn").onclick=killSwitchOn;$("killOff").onclick=killSwitchOff;$("checkIbkr").onclick=loadIbkrConnect;$("modePaper").onclick=()=>setMode("paper");$("modeApproval").onclick=()=>setMode("approval");$("emergencyStop").onclick=emergencyStop;$("resumePaper").onclick=resumePaper;$("buildMemory").onclick=buildMemory;$("biasNeutral").onclick=()=>setOilBias("neutral");$("biasOilBull").onclick=()=>setOilBias("oil_bullish");$("biasOilBear").onclick=()=>setOilBias("oil_bearish");refresh();setInterval(refresh,60000);
+
+async function loadInfraPanel(){
+  try{
+    const s=await api("/api/infra/status");
+    const cfg=s.ibkr_config||{};
+    const c=s.ibkr_connection||{};
+    $("infraPanel").innerHTML=`<div class="metric"><span>IBKR Mode</span><strong>${cfg.mode||"paper"}</strong></div><div class="metric"><span>Host:Port</span><strong>${cfg.host}:${cfg.port}</strong></div><div class="metric"><span>Connected</span><strong>${c.connected?"YES":"NO"}</strong></div><div class="metric"><span>Execution</span><strong>${cfg.execution_enabled?"ENABLED":"LOCKED"}</strong></div><div class="ai">${c.error||s.note}</div>`;
+  }catch(e){$("infraPanel").innerHTML="Infrastructure panel trenutno nije dostupan."}
+}
+
+
+async function loadHedgeFundPanel(){
+  try{
+    const h=await api("/api/hedge-fund/status");
+    const e=h.hedge_fund_engine||{};
+    const cio=h.cio_memo||{};
+    const selected=(e.selected||[]).map(x=>`<div class="log"><b>${x.symbol} · ${x.name}</b><br>${x.action} · ${x.strategy} · confidence ${fmt(x.confidence)} · allocation ${fmt(x.allocation_pct)}%</div>`).join("") || "No approved hedge-fund trades now.";
+    $("hedgeFundPanel").innerHTML=`<div class="metric"><span>Mode</span><strong>${h.mode}</strong></div><div class="metric"><span>Regime</span><strong>${h.regime?.regime||"—"}</strong></div><div class="metric"><span>CIO</span><strong>${cio.recommendation||"—"}</strong></div><div class="metric"><span>Live ready</span><strong>${h.paper_to_live?.ready?"YES":"NO"}</strong></div><div class="ai">${cio.memo||h.principle}</div><h3>Approved Ideas</h3>${selected}`;
+  }catch(e){$("hedgeFundPanel").innerHTML="Hedge Fund panel trenutno nije dostupan."}
+}
