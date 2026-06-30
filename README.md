@@ -1,42 +1,42 @@
-# Trading AI Elite 7.0 AI Hedge Fund Edition
+# Trading AI Elite 7.1 Unified Project
 
-Built on 6.0 Infrastructure.
+This is now the main project base going forward.
 
 Purpose:
-- Move from trading bot to AI portfolio desk
-- Protect capital first
-- Trade only high-consensus opportunities
-- Stay paper-first and live-locked
+- Stop deleting/re-uploading GitHub for every version
+- Keep one unified project
+- Make Render usable as dashboard
+- Make local/VPS backend usable for IBKR TWS/Gateway
+- Add clearer IBKR status messages
+- Add Developer Mode
+- Add AI Execution Queue and Dry Run
+- Keep Hedge Fund 7.0 logic
+- Keep 6.0 Infrastructure endpoints
 
-Added:
-- AI Chief Investment Officer memo
-- Hedge Fund Engine
-- Regime classifier
-- Strategy auto-selector
-- Signal voting desk
-- Portfolio heat allocation
-- Paper-to-live readiness gate
-- Hedge fund decision log
-- Strategy selector log
-- CIO memo log
+Important:
+- Render cannot directly connect to TWS on your laptop.
+- IBKR API requires backend on the same laptop/VPS as TWS or IB Gateway.
+- Render can still serve dashboard and AI analysis.
+- For real Paper execution, run this backend locally or on VPS.
 
-Main endpoints:
-- /api/hedge-fund/status
-- /api/hedge-fund/engine
-- /api/hedge-fund/cio
-- /api/hedge-fund/regime
-- /api/hedge-fund/strategy
-- /api/hedge-fund/live-readiness
+New endpoints:
+- /api/unified/status
+- /api/unified/ibkr-panel
+- /api/developer/status
+- /api/execution/queue
+- /api/execution/dry-run
 
-Rules:
+IBKR local test:
+1. Open TWS Paper.
+2. Enable API socket on port 7497.
+3. Run backend locally:
+   pip install -r requirements.txt
+   uvicorn server:app --host 127.0.0.1 --port 8000
+4. Open:
+   http://127.0.0.1:8000/api/infra/ibkr/status
+
+Safety:
 - Live remains locked.
 - Paper-first remains active.
-- Minimum paper-trade gate before live.
-- Portfolio heat gate.
-- Multi-desk consensus before any proposed trade.
-
-Infrastructure:
-- Keeps 6.0 IBKR/TWS/Gateway endpoints.
-- Render-safe.
-- No pandas.
-- Excel through openpyxl.
+- Execution is locked by default.
+- Dry-run queues ideas but does not send orders.

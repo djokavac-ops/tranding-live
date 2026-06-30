@@ -205,7 +205,7 @@ async function loadProfessionalCore(){
   }catch(e){$("brokerStatus").innerHTML="Broker status nije dostupan."}
 }
 
-async function refresh(){await settings();await loadMarket();await loadBrief();await loadAudit();await loadPaper();await loadProfessionalCore();await loadHedgeFundPanel();await loadInfraPanel();await loadEnterprisePanel();await loadLiveIntelligence();await loadIbkrExecution();await loadHybridMode();await loadProfessional50();await loadOilCfdEngine();await loadIntelligencePlus();await loadIntelligenceCore();await loadControlCenter();await loadIbkrConnect();await loadBrokerEngineFull();await loadSafetyCore();await loadBrokerApprovalCore();await loadAdvancedRisk();await loadStrategyLab();await loadAiJournal()}$("refresh").onclick=refresh;$("run").onclick=run;$("reset").onclick=reset;$("save").onclick=save;$("filter").onchange=render;$("dailyReport").onclick=()=>showReport("daily");$("weeklyReport").onclick=()=>showReport("weekly");$("allReport").onclick=()=>showReport("all");$("runBacktest").onclick=runBacktest;$("runWatchlistBacktest").onclick=runWatchlistBacktest;$("killOn").onclick=killSwitchOn;$("killOff").onclick=killSwitchOff;$("checkIbkr").onclick=loadIbkrConnect;$("modePaper").onclick=()=>setMode("paper");$("modeApproval").onclick=()=>setMode("approval");$("emergencyStop").onclick=emergencyStop;$("resumePaper").onclick=resumePaper;$("buildMemory").onclick=buildMemory;$("biasNeutral").onclick=()=>setOilBias("neutral");$("biasOilBull").onclick=()=>setOilBias("oil_bullish");$("biasOilBear").onclick=()=>setOilBias("oil_bearish");refresh();setInterval(refresh,60000);
+async function refresh(){await settings();await loadMarket();await loadBrief();await loadAudit();await loadPaper();await loadProfessionalCore();await loadUnifiedPanel();await loadDevPanel();await loadHedgeFundPanel();await loadInfraPanel();await loadEnterprisePanel();await loadLiveIntelligence();await loadIbkrExecution();await loadHybridMode();await loadProfessional50();await loadOilCfdEngine();await loadIntelligencePlus();await loadIntelligenceCore();await loadControlCenter();await loadIbkrConnect();await loadBrokerEngineFull();await loadSafetyCore();await loadBrokerApprovalCore();await loadAdvancedRisk();await loadStrategyLab();await loadAiJournal()}$("refresh").onclick=refresh;$("run").onclick=run;$("reset").onclick=reset;$("save").onclick=save;$("filter").onchange=render;$("dailyReport").onclick=()=>showReport("daily");$("weeklyReport").onclick=()=>showReport("weekly");$("allReport").onclick=()=>showReport("all");$("runBacktest").onclick=runBacktest;$("runWatchlistBacktest").onclick=runWatchlistBacktest;$("killOn").onclick=killSwitchOn;$("killOff").onclick=killSwitchOff;$("checkIbkr").onclick=loadIbkrConnect;$("modePaper").onclick=()=>setMode("paper");$("modeApproval").onclick=()=>setMode("approval");$("emergencyStop").onclick=emergencyStop;$("resumePaper").onclick=resumePaper;$("buildMemory").onclick=buildMemory;$("biasNeutral").onclick=()=>setOilBias("neutral");$("biasOilBull").onclick=()=>setOilBias("oil_bullish");$("biasOilBear").onclick=()=>setOilBias("oil_bearish");refresh();setInterval(refresh,60000);
 
 async function loadInfraPanel(){
   try{
@@ -225,4 +225,22 @@ async function loadHedgeFundPanel(){
     const selected=(e.selected||[]).map(x=>`<div class="log"><b>${x.symbol} · ${x.name}</b><br>${x.action} · ${x.strategy} · confidence ${fmt(x.confidence)} · allocation ${fmt(x.allocation_pct)}%</div>`).join("") || "No approved hedge-fund trades now.";
     $("hedgeFundPanel").innerHTML=`<div class="metric"><span>Mode</span><strong>${h.mode}</strong></div><div class="metric"><span>Regime</span><strong>${h.regime?.regime||"—"}</strong></div><div class="metric"><span>CIO</span><strong>${cio.recommendation||"—"}</strong></div><div class="metric"><span>Live ready</span><strong>${h.paper_to_live?.ready?"YES":"NO"}</strong></div><div class="ai">${cio.memo||h.principle}</div><h3>Approved Ideas</h3>${selected}`;
   }catch(e){$("hedgeFundPanel").innerHTML="Hedge Fund panel trenutno nije dostupan."}
+}
+
+
+async function loadUnifiedPanel(){
+  try{
+    const u=await api("/api/unified/status");
+    const ib=u.ibkr_panel||{};
+    const c=ib.connection||{};
+    const rt=u.runtime||{};
+    $("unifiedPanel").innerHTML=`<div class="metric"><span>Version</span><strong>${u.version}</strong></div><div class="metric"><span>IBKR connected</span><strong>${c.connected?"YES":"NO"}</strong></div><div class="metric"><span>Execution mode</span><strong>${rt.ibkr_execution_mode||"—"}</strong></div><div class="metric"><span>Dashboard</span><strong>${rt.dashboard_mode||"—"}</strong></div><div class="ai">${ib.message||rt.important}</div>`;
+  }catch(e){$("unifiedPanel").innerHTML="Unified panel trenutno nije dostupan."}
+}
+async function loadDevPanel(){
+  try{
+    const d=await api("/developer/status").catch(async()=>await api("/api/developer/status"));
+    const q=await api("/api/execution/queue");
+    $("devPanel").innerHTML=`<div class="metric"><span>Developer mode</span><strong>${d.enabled?"ON":"OFF"}</strong></div><div class="metric"><span>Queue items</span><strong>${(q.items||[]).length}</strong></div><div class="metric"><span>Execution</span><strong>${q.execution_locked?"LOCKED":"ENABLED"}</strong></div><div class="ai">Dry-run and logs are available through API. Orders stay locked until manually enabled.</div>`;
+  }catch(e){$("devPanel").innerHTML="Developer panel trenutno nije dostupan."}
 }
